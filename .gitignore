@@ -6,7 +6,6 @@ gcp_service_account_key.json
 .gradle
 /local.properties
 .DS_Store
-/build
 **/build
 /captures
 .externalNativeBuild
