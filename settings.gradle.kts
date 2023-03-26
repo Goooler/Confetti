@@ -31,7 +31,7 @@ pluginManagement {
     resolutionStrategy {
         eachPlugin {
             when (requested.id.id) {
-                // Appengine plugin doesn't publish the marker
+                // https://github.com/GoogleCloudPlatform/app-gradle-plugin/issues/397
                 "com.google.cloud.tools.appengine" -> useModule("com.google.cloud.tools:appengine-gradle-plugin:${requested.version}")
             }
         }
