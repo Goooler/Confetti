@@ -15,7 +15,7 @@ private fun Int.toJavaVersion(): String = when(this) {
 }
 fun Project.configureCompilerOptions(jvmVersion: Int = 11) {
     tasks.withType(KotlinCompile::class.java).configureEach {
-        it.kotlinOptions {
+        kotlinOptions {
             (this as? KotlinJvmOptions)?.let {
                 it.jvmTarget = jvmVersion.toJavaVersion()
             }
@@ -24,21 +24,21 @@ fun Project.configureCompilerOptions(jvmVersion: Int = 11) {
 
     project.tasks.withType(JavaCompile::class.java).configureEach {
         // Ensure "org.gradle.jvm.version" is set to "8" in Gradle metadata of jvm-only modules.
-        it.options.release.set(jvmVersion)
+        options.release.set(jvmVersion)
     }
 
     extensions.getByName("java").apply {
         this as JavaPluginExtension
         toolchain {
-            it.languageVersion.set(JavaLanguageVersion.of(17))
+            languageVersion.set(JavaLanguageVersion.of(17))
         }
     }
 
     extensions.findByName("android")?.apply{
         this as BaseExtension
         compileOptions {
-            it.sourceCompatibility = JavaVersion.toVersion(jvmVersion.toJavaVersion())
-            it.targetCompatibility = JavaVersion.toVersion(jvmVersion.toJavaVersion())
+            sourceCompatibility = JavaVersion.toVersion(jvmVersion.toJavaVersion())
+            targetCompatibility = JavaVersion.toVersion(jvmVersion.toJavaVersion())
         }
     }
 }

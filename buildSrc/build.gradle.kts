@@ -1,5 +1,5 @@
 plugins {
-    `embedded-kotlin`
+    `kotlin-dsl`
 }
 
 dependencies {
