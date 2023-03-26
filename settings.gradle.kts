@@ -50,6 +50,8 @@ gradleEnterprise {
     }
 }
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 rootProject.name = "Confetti"
 include(":androidApp")
 include(":androidBenchmark")

@@ -79,7 +79,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
-    
+
     buildTypes {
         getByName("release") {
             isShrinkResources = true
@@ -135,7 +135,7 @@ kotlin {
 }
 
 dependencies {
-    implementation(project(":shared"))
+    implementation(projects.shared)
 
     implementation(libs.compose.compiler)
     implementation(libs.compose.ui)
