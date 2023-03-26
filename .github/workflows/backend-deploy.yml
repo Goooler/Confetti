@@ -21,6 +21,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: github.repository == 'joreilly/Confetti'
     runs-on: ubuntu-22.04
 
     steps:
